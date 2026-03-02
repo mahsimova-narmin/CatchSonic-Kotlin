@@ -1,4 +1,4 @@
-CatchSonic 
+#CatchSonic 
 
 A simple Android game built with Kotlin.
 
