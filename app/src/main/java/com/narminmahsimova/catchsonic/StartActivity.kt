@@ -23,7 +23,6 @@ class StartActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
     }
     fun start(view: View){
         val intent = Intent(applicationContext, MainActivity::class.java)

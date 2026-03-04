@@ -23,14 +23,12 @@ class ResultsActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
+        val prefs = getSharedPreferences("com.narminmahsimova.catchsonic", MODE_PRIVATE)
+        val highScore = prefs.getInt("highScore", 0)
+        binding.scoreView.text = "Your highest score: $highScore"
     }
-
     fun replay(view: View){
         var intent = Intent(applicationContext, MainActivity::class.java)
-        intent.getIntExtra("Score",0)
-        binding.scoreView.text = "Your highest score:" + intent
         startActivity(intent)
         finish()
     }
