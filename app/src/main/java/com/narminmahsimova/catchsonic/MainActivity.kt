@@ -19,8 +19,8 @@ import java.lang.Runnable
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    var runnable: Runnable = Runnable{}
-    var handler: Handler = Handler(Looper.getMainLooper())
+    private var runnable: Runnable = Runnable{}
+    private var handler: Handler = Handler(Looper.getMainLooper())
 
     private var score = 0
 
@@ -57,10 +57,10 @@ class MainActivity : AppCompatActivity() {
                 })
                 alert.setNegativeButton("No"){p0,p1 ->
                     Toast.makeText(this@MainActivity,"The Game is Over!",Toast.LENGTH_LONG).show()
-                    finish()
                     val intent = Intent(applicationContext, ResultsActivity::class.java)
                     intent.putExtra("Score", score)
                     startActivity(intent)
+                    finish()
                 }
                 alert.show()
             }
@@ -80,7 +80,6 @@ class MainActivity : AppCompatActivity() {
                 handler.postDelayed(this,1000)
             }
         }
-        handler.removeCallbacks(runnable)
         handler.post(runnable)
 
     }
